@@ -1,0 +1,20 @@
+.horizontal {
+    display: inline;
+    justify-content: space-between;
+    flex-wrap:wrap;
+  }
+  .example-half-width {
+    width: 50%;
+  }
+
+  .width {
+      width: 25%;
+  }
+
+  .wrapper {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    height: calc(100vh - 20px);
+  
+  }
