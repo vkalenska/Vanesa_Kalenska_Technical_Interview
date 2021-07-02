@@ -1,6 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  background: linear-gradient(80deg, #fac5fa 0%, #abffe9 50%, #f4f68d 100%);
+}
 
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
+.mat-form-field-flex {
+  display: inline-flex;
+  align-items: baseline;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: azure;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 20px);
+}
+
+.twitter-like {
+  .mat-progress-spinner {
+    display: inline;
+    stroke-opacity: 0.3 !important;
+  }
+}
+
+.card {
+  border-color: transparent !important;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1), 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+  width: 100%;
+
+  .card-body {
+    button {
+      text-transform: uppercase;
+      background-color: aliceblue;
+      border: none;
+      border-radius: 5px;
+      width: 25%;
+      height: 2rem;
+      box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1), 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+    }
+  }
+}

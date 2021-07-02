@@ -1,74 +1,83 @@
-
-<mat-grid-list cols="1"  rowHeight="100px">
-    <mat-grid-tile></mat-grid-tile>
-    <mat-grid-tile >
+<div class="card">
+  <div class="card-body">
+    <mat-grid-list cols="1" rowHeight="70px">
+      <mat-grid-tile>
+        <h3 style="margin: 0px">USER</h3>
+      </mat-grid-tile>
+      <mat-grid-tile>
         <mat-form-field class="width">
-            <mat-label>Name</mat-label>
-            <input matInput [(ngModel)]="user.name" readonly>
+          <mat-label>Name</mat-label>
+          <input matInput [(ngModel)]="user.name" readonly>
         </mat-form-field>
-    </mat-grid-tile>
-    <mat-grid-tile>
+      </mat-grid-tile>
+      <mat-grid-tile>
         <mat-form-field class="width">
-            <mat-label>User name</mat-label>
-            <input matInput [(ngModel)]="user.username" readonly>
+          <mat-label>User name</mat-label>
+          <input matInput [(ngModel)]="user.username" readonly>
         </mat-form-field>
-    </mat-grid-tile>
-    <mat-grid-tile>
+      </mat-grid-tile>
+      <mat-grid-tile>
         <mat-form-field class="width">
-            <mat-label>Email</mat-label>
-            <input matInput [(ngModel)]="user.email" readonly>
+          <mat-label>Email</mat-label>
+          <input matInput [(ngModel)]="user.email" readonly>
         </mat-form-field>
-    </mat-grid-tile>
-    <mat-grid-tile>
+      </mat-grid-tile>
+      <mat-grid-tile>
         <mat-form-field class="width">
-            <mat-label>Street</mat-label>
-            <input matInput [(ngModel)]="user.address.street">
+          <mat-label>Street</mat-label>
+          <input matInput [(ngModel)]="user.address.street">
         </mat-form-field>
-    </mat-grid-tile>
-    <mat-grid-tile>
+      </mat-grid-tile>
+      <mat-grid-tile>
         <mat-form-field class="width">
-            <mat-label>Suit</mat-label>
-            <input matInput [(ngModel)]="user.address.suite">
+          <mat-label>Suit</mat-label>
+          <input matInput [(ngModel)]="user.address.suite">
         </mat-form-field>
-    </mat-grid-tile>
-    <mat-grid-tile>
+      </mat-grid-tile>
+      <mat-grid-tile>
         <mat-form-field class="width">
-            <mat-label>City</mat-label>
-            <input matInput [(ngModel)]="user.address.city">
+          <mat-label>City</mat-label>
+          <input matInput [(ngModel)]="user.address.city">
         </mat-form-field>
-    </mat-grid-tile>
-    <mat-grid-tile>
+      </mat-grid-tile>
+      <mat-grid-tile>
         <mat-form-field class="width">
-            <mat-label>Phone</mat-label>
-            <input matInput [(ngModel)]="user.phone">
+          <mat-label>Phone</mat-label>
+          <input matInput [(ngModel)]="user.phone">
         </mat-form-field>
-    </mat-grid-tile>
-    <mat-grid-tile>
+      </mat-grid-tile>
+      <mat-grid-tile>
         <mat-form-field class="width">
-            <mat-label>Website</mat-label>
-            <input matInput [(ngModel)]="user.website">
+          <mat-label>Website</mat-label>
+          <input matInput [(ngModel)]="user.website">
         </mat-form-field>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <button mat-button color="accent" (click)="updateUser(user.id)">Update</button>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <button mat-button color="primary" (click)="getPosts(user.id)">Get user's posts</button>
-    </mat-grid-tile>
-    <div *ngIf="toggleButton">
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-button (click)="updateUser(user.id)">Update</button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-button (click)="getPosts(user.id)">Get user's posts</button>
+      </mat-grid-tile>
+      <div *ngIf="toggleButton">
         <div *ngFor="let post of posts">
-            <mat-grid-tile>
-                <mat-form-field class="example-half-width" appearance="fill">
-                    <mat-label>{{post.title}}</mat-label>
-                    <textarea matInput [(ngModel)]="post.body"></textarea>
-                  </mat-form-field>
-            </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field class="example-half-width" appearance="fill">
+              <mat-label>{{post.title}}</mat-label>
+              <textarea matInput [(ngModel)]="post.body"></textarea>
+            </mat-form-field>
+          </mat-grid-tile>
         </div>
+      </div>
+    </mat-grid-list>
+    <div *ngIf="!isReady" class="wrapper">
+      <div class="twitter-like">
+        <mat-spinner class="background"
+                     mode="determinate"
+                     value="100"
+                     color="accent">
+        </mat-spinner>
+        <mat-spinner style="margin:0 auto;z-index: 1000;" color="accent"></mat-spinner>
+      </div>
     </div>
-
-</mat-grid-list>
-<div *ngIf="!isReady" class="wrapper">
-    <mat-spinner  style="margin:0 auto;z-index: 1000;" 
-></mat-spinner>
+  </div>
 </div>
-
