@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { UsersService } from '../../users.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {UsersService} from '../../users.service';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-user',
@@ -11,12 +12,25 @@ export class UserComponent implements OnInit {
   posts: any;
   toggleButton = false;
   isReady = true;
-  constructor(private usersSvc: UsersService) { }
+  usersForm: FormGroup
 
-  ngOnInit(): void {
-    console.log(this.user);
+
+  constructor(private usersSvc: UsersService) {
+    this.usersForm = new FormGroup({});
   }
 
+  ngOnInit(): void {
+    this.usersForm = new FormGroup({
+      name: new FormControl(this.user.name),
+      username: new FormControl(this.user.username),
+      email: new FormControl(this.user.email),
+      street: new FormControl(this.user.address.street),
+      suite: new FormControl(this.user.address.suite),
+      city: new FormControl(this.user.address.city),
+      phone: new FormControl(this.user.phone),
+      website: new FormControl(this.user.website)
+    })
+  }
 
   getPosts(e: any) {
     this.isReady = false;
@@ -30,8 +44,8 @@ export class UserComponent implements OnInit {
   updateUser(userId: any) {
     this.isReady = false;
     this.usersSvc.updateUser(userId, this.user).subscribe(res => {
-      this.isReady = true
-    },
+        this.isReady = true
+      },
       error => console.log(error)
     )
   }

@@ -13,7 +13,7 @@ import {MatProgressSpinnerModule, MatSpinner} from '@angular/material/progress-s
 import {MatSliderModule} from '@angular/material/slider';
 import { UsersService } from './users.service';
 import { HttpClient } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -31,7 +31,8 @@ import { FormsModule } from '@angular/forms';
     MatCardModule,
     MatListModule,
     MatButtonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ReactiveFormsModule
   ],
   providers: [UsersService, HttpClient]
 })

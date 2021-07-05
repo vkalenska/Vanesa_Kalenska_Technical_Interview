@@ -5,9 +5,11 @@ import { MatSliderModule } from '@angular/material/slider';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import {ResponseHandlerInterceptorService} from "./core/interceptors/response-handler-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -20,9 +22,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatSliderModule,
     HttpClientModule,
     FormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    NgxSpinnerModule,
+    ReactiveFormsModule
   ],
-  providers: [HttpClient],
+  providers: [HttpClient, {provide: HTTP_INTERCEPTORS, useClass: ResponseHandlerInterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
